@@ -473,6 +473,37 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "CZKTvxc7ZRpXL0JHq",
+      });
+   })();
+</script>
+<script>
+  document.getElementById('sendButton').addEventListener('click', function () {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    emailjs.send("service_gwr2pcb", "template_uhf7wfi", {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+    })
+        .then(function (response) {
+            alert("Your message has been sent. Thank you!");
+        }, function (error) {
+            alert("Failed to send message: " + error.text);
+        });
+});
+
+</script>
 
 </body>
 
