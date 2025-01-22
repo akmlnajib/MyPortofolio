@@ -9,7 +9,7 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -45,8 +45,8 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">MyPortfolio</h1>
+        <img src="assets/img/logo.png" height="100" width="60" alt="">
+        <!-- <h1 class="sitename">AN</h1> -->
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -55,7 +55,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#portfolio">Portofolio</a></li>
           <li><a href="#skills">Skill</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -64,7 +64,7 @@
   </header>
 
   <main class="main">
-    <section id="about" class="about section">
+    <section id="about" class="about section light-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -172,7 +172,7 @@
 
     </section><!-- /Resume Section -->
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+    <section id="portfolio" class="portfolio section light-background">
 
       <div class="container">
 
@@ -328,7 +328,7 @@
     </section><!-- /Portfolio Section -->
 
     <!-- Clients Section -->
-    <section id="skills" class="clients section light-background">
+    <section id="skills" class="clients section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -410,68 +410,6 @@
 
     </section><!-- /Clients Section -->
 
-    <section id="contact" class="contact section">
-
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-            <div class="info-item d-flex" >
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>Jl. Utan Panjang II, Kemayoran, Central Jakarta, DKI Jakarta, Indonesia, 10650</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" >
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call</h3>
-                <p>+62 896 3744 5787</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex" >
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email<br></h3>
-                <p>akmlnajib13@gmail.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-7">
-            <form id="contactForm" >
-              <div class="row gy-4">
-                  <div class="col-md-6">
-                      <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                  </div>
-                  <div class="col-md-6">
-                      <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                  </div>
-                  <div class="col-md-12">
-                      <input type="text" id="subject" class="form-control" placeholder="Subject" required>
-                  </div>
-                  <div class="col-md-12">
-                      <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
-                  </div>
-                  <div class="col-md-12 text-center">
-                      <button type="button" id="sendButton">Send Message</button>
-                  </div>
-              </div>
-          </form>
-          
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
   </main>
 
   <footer id="footer" class="footer light-background">
@@ -507,37 +445,6 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "CZKTvxc7ZRpXL0JHq",
-      });
-   })();
-</script>
-<script>
-  document.getElementById('sendButton').addEventListener('click', function () {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    emailjs.send("service_gwr2pcb", "template_uhf7wfi", {
-        from_name: name,
-        from_email: email,
-        subject: subject,
-        message: message,
-    })
-        .then(function (response) {
-            alert("Your message has been sent. Thank you!");
-        }, function (error) {
-            alert("Failed to send message: " + error.text);
-        });
-});
-
-</script>
 
 </body>
 
