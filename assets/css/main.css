@@ -613,34 +613,34 @@ section,
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
-.clients .swiper-slide img {
+.skills .swiper-slide img {
   opacity: 0.5;
   transition: 0.3s;
   filter: grayscale(100);
 }
 
-.clients .swiper-slide img:hover {
+.skills .swiper-slide img:hover {
   filter: none;
   opacity: 1;
 }
 
-.clients .swiper-wrapper {
+.skills .swiper-wrapper {
   height: auto;
 }
 
-.clients .swiper-pagination {
+.skills .swiper-pagination {
   margin-top: 20px;
   position: relative;
 }
 
-.clients .swiper-pagination .swiper-pagination-bullet {
+.skills .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   opacity: 1;
   background-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.clients .swiper-pagination .swiper-pagination-bullet-active {
+.skills .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
 }
 
