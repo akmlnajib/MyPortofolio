@@ -473,50 +473,6 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-  <h1>Jumlah Pengunjung: <span id="visitor-count">Loading...</span></h1>
-
-  <script>
-      function initGoogleAnalytics() {
-          gapi.load('client:auth2', function () {
-              gapi.client.init({
-                  apiKey: 'YOUR_API_KEY',  // Ganti dengan API key Anda
-                  clientId: 'YOUR_CLIENT_ID',  // Ganti dengan client ID Anda
-                  discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
-                  scope: "https://www.googleapis.com/auth/analytics.readonly"
-              }).then(function () {
-                  return gapi.client.analyticsreporting.reports.batchGet({
-                      "reportRequests": [
-                          {
-                              "viewId": "YOUR_VIEW_ID",  // Ganti dengan View ID dari Google Analytics
-                              "dateRanges": [
-                                  {
-                                      "startDate": "7daysAgo",
-                                      "endDate": "today"
-                                  }
-                              ],
-                              "metrics": [
-                                  {
-                                      "expression": "ga:users"
-                                  }
-                              ]
-                          }
-                      ]
-                  });
-              }).then(function (response) {
-                  const userCount = response.result.reports[0].data.totals[0].values[0];
-                  document.getElementById('visitor-count').textContent = userCount;
-              }, function (error) {
-                  console.error('Error fetching data:', error);
-                  document.getElementById('visitor-count').textContent = 'Error';
-              });
-          });
-      }
-
-      gapi.load("client", initGoogleAnalytics);
-  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
