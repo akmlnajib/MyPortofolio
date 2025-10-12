@@ -1,4 +1,4 @@
-body {
+    body {
       font-family: 'Poppins', sans-serif;
       background-color: #0A0A0F;
       color: #EAEAEA;
@@ -29,4 +29,42 @@ body {
       background-color: #00ffff;
       color: #0A0A0F;
       box-shadow: 0 0 20px #00ffff;
+    }
+
+    .neon-text {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    /* Animasi muncul */
+    .modal-card.show {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    /* Smooth fade background */
+    #projectModal.fade-in {
+      animation: fadeInBg 0.3s ease forwards;
+    }
+
+    @keyframes fadeInBg {
+      from {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      to {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    /* active filter */
+    #projects .filter-active {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    /* smooth card transitions */
+    #projectsGrid .project-card {
+      transition: transform .28s ease, opacity .28s ease;
     }
