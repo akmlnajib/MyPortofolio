@@ -2,505 +2,828 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="wQbHkwu__UsxS60YcyRUjB01BSYH88nPPDaSIyTTaww" />
-
-  <!-- Favicons -->
-  <link href="assets/img/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Futuristic Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0A0A0F;
+      color: #EAEAEA;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    h1,
+    h2,
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+    }
 
+    .neon-text {
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    .neon-border {
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    .btn-neon {
+      border: 1px solid #00ffff;
+      transition: all 0.3s;
+    }
+
+    .btn-neon:hover {
+      background-color: #00ffff;
+      color: #0A0A0F;
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    .neon-text {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    /* Animasi muncul */
+    .modal-card.show {
+      opacity: 1 !important;
+      transform: scale(1) !important;
+    }
+
+    /* Smooth fade background */
+    #projectModal.fade-in {
+      animation: fadeInBg 0.3s ease forwards;
+    }
+
+    @keyframes fadeInBg {
+      from {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      to {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    /* active filter */
+    #projects .filter-active {
+      background-color: #00ffff;
+      color: #000;
+      box-shadow: 0 0 12px #00ffff;
+    }
+
+    /* smooth card transitions */
+    #projectsGrid .project-card {
+      transition: transform .28s ease, opacity .28s ease;
+    }
+  </style>
 </head>
 
-<body class="index-page">
+<body class="overflow-x-hidden relative">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid  position-relative d-flex align-items-center justify-content-between">
+  <!-- Background Particles -->
+  <div id="particles-js" class="absolute inset-0 -z-10"></div>
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.png" height="100" width="60" alt="">
-        <!-- <h1 class="sitename">AN</h1> -->
-      </a>
+  <!-- Navbar -->
+  <nav
+    class="fixed w-full top-0 z-50 bg-[#0A0A0F]/70 backdrop-blur-md border-b border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all duration-500">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center" id="navbar">
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portofolio</a></li>
-          <li><a href="#skills">Skill</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+      <!-- Logo / Name -->
+      <h1
+        class="text-cyan-400 text-lg md:text-xl font-semibold tracking-wide neon-text hover:tracking-widest transition-all duration-500 cursor-pointer">
+        <span class="text-white">Akmal</span> Najib
+      </h1>
 
+      <!-- Hamburger -->
+      <button id="menu-btn" class="md:hidden text-cyan-400 text-2xl hover:scale-110 transition-transform duration-300">
+        ☰
+      </button>
+
+      <!-- Desktop Menu -->
+      <div id="menu" class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <div data-lang="EN" class="flex space-x-6">
+          <a href="#about" class="hover:text-cyan-400 transition duration-300">About</a>
+          <a href="#resume" class="hover:text-cyan-400 transition duration-300">Resume</a>
+          <a href="#projects" class="hover:text-cyan-400 transition duration-300">Projects</a>
+          <a href="#skills" class="hover:text-cyan-400 transition duration-300">Skills</a>
+          <a href="#contact" class="hover:text-cyan-400 transition duration-300">Contact</a>
+        </div>
+
+        <div data-lang="ID" class="hidden flex space-x-6">
+          <a href="#about" class="hover:text-cyan-400 transition duration-300">Tentang Saya</a>
+          <a href="#resume" class="hover:text-cyan-400 transition duration-300">Riwayat</a>
+          <a href="#projects" class="hover:text-cyan-400 transition duration-300">Proyek</a>
+          <a href="#skills" class="hover:text-cyan-400 transition duration-300">Kemampuan</a>
+          <a href="#contact" class="hover:text-cyan-400 transition duration-300">Kontak</a>
+        </div>
+
+        <!-- Language Toggle -->
+        <button id="toggleLang"
+          class="ml-4 px-3 py-1 border border-cyan-400 rounded-lg text-cyan-300 hover:bg-cyan-400 hover:text-black transition-all duration-300 text-xs shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+          ID
+        </button>
+      </div>
     </div>
-  </header>
 
-  <main class="main">
-    <section id="about" class="about section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-2">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-10 content">
-            <h3>Hey, I'm Akmal Najib</h3>
-            <h2>Fresh graduate</h2>
-            <p class="fst-italic py-3">
-              I am a fresh graduate with a Bachelor's degree in Computer Science from Universitas Bhayangkara Jakarta
-              Raya, with a GPA of 3.50/4.00. I have experience as a a Junior Warehouse Analyst at PT Shopee International Indonesia.
-              
-              I have completed training and certifications in Google Advanced Data Analytics, Occupational Health and
-              Safety, and Software Development and Programming. I am skilled in Python, PHP, MySQL, JavaScript, Laravel,
-              CodeIgniter, Tableau, and Figma, with strong analytical, communication, teamwork, and problem-solving
-              abilities. I am ready to contribute optimally and grow in a dynamic work environment.
-            </p>
-          </div>
-        </div>
-
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden flex-col items-center text-center space-y-4 py-6 bg-[#0A0A0F]/90 border-t border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+      <div data-lang="EN" class="flex flex-col space-y-3">
+        <a href="#about" class="hover:text-cyan-400 transition duration-300">About</a>
+        <a href="#resume" class="hover:text-cyan-400 transition duration-300">Resume</a>
+        <a href="#projects" class="hover:text-cyan-400 transition duration-300">Projects</a>
+        <a href="#skills" class="hover:text-cyan-400 transition duration-300">Skills</a>
+        <a href="#contact" class="hover:text-cyan-400 transition duration-300">Contact</a>
       </div>
 
-    </section><!-- /About Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Bachelor of Computer Science</h4>
-              <h5>2020 - 2024</h5>
-              <p><em>Bhayangkara Jakarta Raya Univesity, Bekasi, West Java.</em></p>
-              <p>IPK: 3.50/4.00</p>
-              <p>The Application of the SMART Algorithm in a Decision Support System for the Best Employee Assessment at
-                PT. Raharja Jaya Mandiri Bekasi.</p>
-            </div><!-- Edn Resume Item -->
-
-            <h3 class="resume-title">Traning & Certification</h3>
-            <div class="resume-item">
-              <a href="https://www.coursera.org/account/accomplishments/professional-cert/2AJACRZ4DTK6" target="_blank">
-                <h4>Coursera, 2025. Google Advanced Data Analytics</h4>
-              </a>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <h4>Ministry of Manpower of the Republic of Indonesia, 2024, Occupational Safety and Health
-                Expert Candidate</h4>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <h4>PT. Mutiara Mutu Sertifikasi, 2024. Occupational Health and Safety Expert Training and Certification
-              </h4>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <h4>National Professional Certification Agency (BNSP), 2023. Junior Web Developer</h4>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <h4>Digital Talent Scholarship, 2023. Junior Web Developer Training</h4>
-            </div><!-- Edn Resume Item -->
-            <div class="resume-item">
-              <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/QM5S9Z8HQ9NT"
-                target="_blank">
-                <h4>Coursera, 2023. Google IT Support</h4>
-              </a>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Work Experience</h3>
-            
-
-            <div class="resume-item">
-              <h4>Junior Analyst</h4>
-              <h5>March 2020 - June 2020</h5>
-              <p><em>PT Shopee International Indonesia, North Jakarta, Indonesia</em></p>
-              <ul>
-                <li>Ensured accurate recording of item quantities, shipping destinations, and customer details.</li>
-                <li>Verified that shipping data entered into the system matched physical documents.</li>
-                <li>Identified and reported data discrepancies.</li>
-              </ul>
-            </div><!-- Edn Resume Item -->
-
-          </div>
-
-        </div>
-
+      <div data-lang="ID" class="hidden flex flex-col space-y-3">
+        <a href="#about" class="hover:text-cyan-400 transition duration-300">Tentang Saya</a>
+        <a href="#resume" class="hover:text-cyan-400 transition duration-300">Riwayat</a>
+        <a href="#projects" class="hover:text-cyan-400 transition duration-300">Proyek</a>
+        <a href="#skills" class="hover:text-cyan-400 transition duration-300">Kemampuan</a>
+        <a href="#contact" class="hover:text-cyan-400 transition duration-300">Kontak</a>
       </div>
 
-    </section><!-- /Resume Section -->
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
+      <button id="toggleLangMobile"
+        class="px-3 py-1 border border-cyan-400 rounded-lg text-cyan-300 hover:bg-cyan-400 hover:text-black transition-all duration-300 text-xs shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+        ID
+      </button>
+    </div>
+  </nav>
 
-      <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <div class="row align-items-center">
-            <div class="col-lg-7 portfolio-info">
-              <h3>Portfolio</h3>
-            </div>
-            <div class="col-lg-5 text-center text-lg-end">
-              <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">All</li>
-                <li data-filter=".filter-app">Web</li>
-                <li data-filter=".filter-analyst">Tableau</li>
-              </ul><!-- End Portfolio Filters -->
-            </div>
-          </div>
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200"
-            style="position: relative; height: 1344px;">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/a.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Absensi Geolocation</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/a.png" title="Absensi Geolocation"
-                      data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-absensi.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-            
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/moodle-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>IMPHNEN-Academy</h4>
-                  <p>Website-Moodle</p>
-                  <div>
-                    <a href="assets/img/portfolio/moodle-1.png" title="IMPHNEN-Academy"
-                      data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 440px; top: 336px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/an-5.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Analisa Numerik</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/an-5.png" title="Analisa Numerik" data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-analisa.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analyst"
-              style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/t-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Waze-User-Churn-Prediction-EDA </h4>
-                  <p>Tableau</p>
-                  <div>
-                    <a href="assets/img/portfolio/t-3.png" title="Waze-User-Churn-Prediction-EDA"
-                      data-gallery="portfolio-gallery-analyst" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-t-3.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 440px; top: 336px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/mb-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Microbooks</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/mb-1.png" title="Microbooks" data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-mb.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 440px; top: 336px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/kr-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Kenangan RentCar</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/kr-1.png" title="Kenangan RentCar"
-                      data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-kr.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analyst"
-              style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/t-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>TikTok End of Course Project</h4>
-                  <p>Tableau</p>
-                  <div>
-                    <a href="assets/img/portfolio/t-2.png" title="TikTok End of Course Project"
-                      data-gallery="portfolio-gallery-analyst" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-t-2.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 440px; top: 336px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/rjm-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Sistem Pendukung Keputusan Penilaian Karyawan Terbaik</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/rjm-1.png"
-                      title="Sistem Pendukung Keputusan Penilaian Karyawan Terbaik" data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-spk.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-              style="position: absolute; left: 440px; top: 336px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/b-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Scholarship</h4>
-                  <p>Website</p>
-                  <div>
-                    <a href="assets/img/portfolio/b-1.png" title="Scholarship" data-gallery="portfolio-gallery-app"
-                      class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-beasiswa.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analyst"
-              style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/t-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Seoul Average Bike Rentals per Hour on Weekdays in 2018</h4>
-                  <p>Tableau</p>
-                  <div>
-                    <a href="assets/img/portfolio/t-1.png"
-                      title="Seoul Average Bike Rentals per Hour on Weekdays in 2018"
-                      data-gallery="portfolio-gallery-analyst" class="glightbox preview-link"><i
-                        class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details-t-1.html" title="More Details" class="details-link"><i
-                        class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
+  <!-- About Section -->
+  <section id="about" class="py-20 max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10" data-aos="fade-right">
+      <div class="flex-shrink-0">
+        <img src="assets/img/foto.jpg" alt="Profile"
+          class="rounded-full neon-border w-36 h-36 md:w-48 md:h-48 object-cover mx-auto md:mx-0" />
       </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Clients Section -->
-    <section id="skills" class="clients section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>My Skills</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 800,
-              "autoplay": {
-                "delay": 3000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg" class="img-fluid" loading="lazy"/>
-            </div>
-            <div class="swiper-slide">
-              <img src="assets/img/skills/tableau.png" class="img-fluid" loading="lazy"/>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-  </main>
-
-  <footer id="footer" class="footer light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename"><img src="assets/img/logo.png" width="50" height="50" alt=""></strong> <span>All Rights Reserved</span>
+      <div class="flex-1 text-gray-300 text-center md:text-left">
+        <h1 data-lang="EN" class="text-2xl md:text-4xl neon-text font-bold mb-3">
+          Hello, I'm <span class="text-cyan-400">Akmal Najib</span>
+        </h1>
+        <h1 data-lang="ID" class="text-2xl md:text-4xl neon-text font-bold mb-3 hidden">
+          Hallo, Saya <span class="text-cyan-400">Akmal Najib</span>
+        </h1>
+        <p class="text-cyan-300 text-base md:text-lg mb-4">
+          <span id="typed"></span>
         </p>
+        <div class="relative text-gray-300 text-sm md:text-base">
+          <!-- Tombol toggle bahasa -->
+
+          <!-- Versi Bahasa Inggris -->
+          <p data-lang="EN" class="leading-relaxed">
+            I hold a Bachelor's degree in <span class="text-cyan-400">Computer Science</span> from
+            <span class="text-cyan-400">Universitas Bhayangkara Jakarta Raya</span>, with a GPA of
+            <span class="text-cyan-400">3.50/4.00</span>.
+            I am currently undertaking an internship at <span class="text-cyan-400">PT Pegadaian</span> as a
+            <span class="text-cyan-400">Digital Representative</span>, where I engage in digital product promotion and
+            customer assistance.
+            I have also gained experience as a <span class="text-cyan-400">Junior Warehouse Analyst</span> at
+            <span class="text-cyan-400">PT Shopee International Indonesia</span>.
+            Additionally, I have completed certifications in <span class="text-cyan-400">Google Advanced Data
+              Analytics</span>,
+            <span class="text-cyan-400">Occupational Health and Safety</span>, and
+            <span class="text-cyan-400">Software Development and Programming</span>.
+            I am skilled in <span class="text-cyan-400">Python, PHP, MySQL, JavaScript, Laravel, CodeIgniter,
+              Tableau,</span> and
+            <span class="text-cyan-400">Figma</span>, with strong analytical, communication, teamwork, and
+            problem-solving abilities.
+            I am eager to continue growing and contributing effectively in a <span class="text-cyan-400">dynamic work
+              environment</span>.
+          </p>
+
+          <!-- Versi Bahasa Indonesia -->
+          <p data-lang="ID" class="leading-relaxed hidden">
+            Saya merupakan lulusan <span class="text-cyan-400">S1 Informatika</span> dari
+            <span class="text-cyan-400">Universitas Bhayangkara Jakarta Raya</span> dengan IPK
+            <span class="text-cyan-400">3.50/4.00</span>.
+            Saat ini saya sedang melaksanakan magang di <span class="text-cyan-400">PT Pegadaian</span> sebagai
+            <span class="text-cyan-400">Digital Representative</span>, berfokus pada promosi produk digital dan
+            pendampingan nasabah.
+            Sebelumnya saya memiliki pengalaman sebagai <span class="text-cyan-400">Junior Warehouse Analyst</span> di
+            <span class="text-cyan-400">PT Shopee International Indonesia</span>.
+            Saya juga telah menyelesaikan beberapa pelatihan dan sertifikasi, antara lain
+            <span class="text-cyan-400">Google Advanced Data Analytics</span>,
+            <span class="text-cyan-400">Kesehatan dan Keselamatan Kerja (K3)</span>, serta
+            <span class="text-cyan-400">Software Development and Programming</span>.
+            Saya menguasai <span class="text-cyan-400">Python, PHP, MySQL, JavaScript, Laravel, CodeIgniter,
+              Tableau,</span> dan
+            <span class="text-cyan-400">Figma</span>, serta memiliki kemampuan analisis, komunikasi, kerja tim, dan
+            pemecahan masalah yang baik.
+            Saya siap berkembang dan memberikan kontribusi terbaik di lingkungan kerja yang <span
+              class="text-cyan-400">dinamis</span>.
+          </p>
+        </div>
+        <a href="#projects" class="btn-neon px-5 py-2.5 rounded-lg inline-block text-sm md:text-base mt-2"
+          data-lang="EN">
+          View My Projects
+        </a>
+        <a href="#projects" class="btn-neon px-5 py-2.5 rounded-lg inline-block text-sm md:text-base mt-2 hidden"
+          data-lang="ID">
+          Lihat Proyek Saya
+        </a>
       </div>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://github.com/akmlnajib" target="_blank"><i class="bi bi-github" target="_blank"></i></a>
-        <a href="https://www.linkedin.com/in/akmalnajib/" target="_blank"><i class="bi bi-linkedin" target="_blank"></i></a>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="py-20 text-gray-200 px-6">
+    <div data-lang="EN">
+      <h2 class="text-3xl font-bold text-center neon-text mb-16" data-aos="fade-up">Resume</h2>
+      <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+
+        <!-- Left Column -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-8">Education</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-12">
+            <!-- Line -->
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">BACHELOR OF COMPUTER SCIENCE</h4>
+              <p class="text-sm italic text-gray-400 mt-1">2020 – 2024</p>
+              <p class="text-sm mt-1 italic text-gray-400">Bhayangkara Jakarta Raya University, Bekasi, West Java</p>
+              <p class="text-sm mt-2">GPA: <span class="text-cyan-300">3.50/4.00</span></p>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-cyan-400 mb-6 mt-5">Training & Certification</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-10">
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>COURSERA, 2025.</strong> GOOGLE ADVANCED DATA ANALYTICS</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>MINISTRY OF MANPOWER, 2024.</strong> OCCUPATIONAL SAFETY AND HEALTH EXPERT
+                CANDIDATE</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>PT. MUTIARA MUTU SERTIFIKASI, 2024.</strong> OCCUPATIONAL HEALTH AND SAFETY
+                EXPERT TRAINING</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>BNSP, 2023.</strong> JUNIOR WEB DEVELOPER</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>DIGITAL TALENT SCHOLARSHIP, 2023.</strong> JUNIOR WEB DEVELOPER TRAINING</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>COURSERA, 2023.</strong> GOOGLE IT SUPPORT</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-8">Work Experience</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-12">
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST</h4>
+              <p class="text-sm italic text-gray-400 mt-1">March 2020 – June 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, North Jakarta, Indonesia
+              </p>
+              <p class="text-sm leading-relaxed mt-2 text-gray-200">
+                Ensured accurate documentation of inventory quantities, shipment details, and customer information.
+                Validated shipping and inventory data in the system to ensure alignment with physical records, and
+                identified as well as reported discrepancies to improve data accuracy and warehouse efficiency.
+              </p>
+            </div>
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST</h4>
+              <p class="text-sm italic text-gray-400 mt-1">March 2020 – June 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, North Jakarta, Indonesia
+              </p>
+              <p class="text-sm leading-relaxed mt-2 text-gray-200">
+                Ensured accurate documentation of inventory quantities, shipment details, and customer information.
+                Validated shipping and inventory data in the system to ensure alignment with physical records, and
+                identified as well as reported discrepancies to improve data accuracy and warehouse efficiency.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-lang="ID" class="hidden">
+      <h2 class="text-3xl font-bold text-center neon-text mb-16" data-aos="fade-up">Riwayat</h2>
+      <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+        <!-- Left Column -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-8">Pendidikan</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-12">
+            <!-- Line -->
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">SARJANA ILMU KOMPUTER</h4>
+              <p class="text-sm italic text-gray-400 mt-1">2020 – 2024</p>
+              <p class="text-sm mt-1 italic text-gray-400">Universitas Bhayangkara Jakarta Raya, Bekasi, Jawa Barat</p>
+              <p class="text-sm mt-2">IPK: <span class="text-cyan-300">3.50/4.00</span></p>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold text-cyan-400 mb-6 mt-5">Pelatihan & Sertifikasi</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-10">
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>COURSERA, 2025.</strong> GOOGLE ADVANCED DATA ANALYTICS</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>KEMENTERIAN KETENAGAKERJAAN, 2024.</strong> CALON AHLI KESELAMATAN DAN
+                KESEHATAN KERJA (K3)</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>PT. MUTIARA MUTU SERTIFIKASI, 2024.</strong> PELATIHAN AHLI KESELAMATAN DAN
+                KESEHATAN KERJA (K3)</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>BNSP, 2023.</strong> JUNIOR WEB DEVELOPER</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>DIGITAL TALENT SCHOLARSHIP, 2023.</strong> PELATIHAN JUNIOR WEB DEVELOPER</p>
+            </div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <p class="text-sm"><strong>COURSERA, 2023.</strong> GOOGLE IT SUPPORT</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-8">Pengalaman Kerja</h3>
+          <div class="relative border-l-2 border-cyan-400 pl-8 space-y-12">
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST, Warehouse</h4>
+              <p class="text-sm italic text-gray-400 mt-1">Maret 2020 – Juni 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, Jakarta Utara, Indonesia
+              </p>
+              <p class="text-sm leading-relaxed mt-2 text-gray-200">
+                Memastikan pendokumentasian data inventaris, detail pengiriman, dan informasi pelanggan secara akurat.
+                Memverifikasi data pengiriman dan inventaris di sistem agar sesuai dengan catatan fisik, serta
+                mengidentifikasi dan melaporkan ketidaksesuaian data untuk meningkatkan akurasi dan efisiensi
+                operasional gudang.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+    <h2 class="text-3xl font-bold neon-text mb-12" data-lang="EN" data-aos="fade-up">Proyek</h2>
+    <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-lang="ID" data-aos="fade-up">Proyek</h2>
+    <!-- Projects Grid (note id untuk JS) -->
+    <div id="projectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <!-- Project 0 (Web) -->
+      <div
+        class="project-card filter-web bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-right">
+        <img src="assets/img/project/project-3.png" alt="Kenangan Rentcar"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">Kenangan Rentcar</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            data-project="0">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="0">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://github.com/akmlnajib/Kenangan-RentalCar" target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 .5C5.648.5.5 5.648.5 12c0 5.094 3.293 9.406 7.864 10.938.575.1.787-.25.787-.562 0-.281-.012-1.219-.012-2.219-3.2.688-3.875-1.375-3.875-1.375-.525-1.313-1.287-1.662-1.287-1.662-1.05-.713.075-.7.075-.7 1.162.087 1.775 1.2 1.775 1.2 1.031 1.762 2.7 1.25 3.362.962.1-.744.4-1.25.725-1.537-2.55-.287-5.237-1.287-5.237-5.737 0-1.263.45-2.3 1.2-3.112-.125-.288-.525-1.462.112-3.05 0 0 .975-.312 3.2 1.188A11.1 11.1 0 0 1 12 6.9c.987.012 1.987.137 2.925.4 2.225-1.5 3.2-1.188 3.2-1.188.637 1.588.237 2.762.112 3.05.75.812 1.2 1.85 1.2 3.112 0 4.463-2.7 5.437-5.262 5.712.412.35.775 1.037.775 2.1 0 1.512-.013 2.737-.013 3.112 0 .3.212.65.787.55A10.99 10.99 0 0 0 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                clip-rule="evenodd" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 1 (Web) -->
+      <div
+        class="project-card filter-web bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-up">
+        <img src="assets/img/project/project-1.png" alt="Absensi Geolocation"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">Absensi Geolocation</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            data-project="1">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="1">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://github.com/akmlnajib/Absensi-Geolocation" target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 .5C5.648.5.5 5.648.5 12c0 5.094 3.293 9.406 7.864 10.938.575.1.787-.25.787-.562 0-.281-.012-1.219-.012-2.219-3.2.688-3.875-1.375-3.875-1.375-.525-1.313-1.287-1.662-1.287-1.662-1.05-.713.075-.7.075-.7 1.162.087 1.775 1.2 1.775 1.2 1.031 1.762 2.7 1.25 3.362.962.1-.744.4-1.25.725-1.537-2.55-.287-5.237-1.287-5.237-5.737 0-1.263.45-2.3 1.2-3.112-.125-.288-.525-1.462.112-3.05 0 0 .975-.312 3.2 1.188A11.1 11.1 0 0 1 12 6.9c.987.012 1.987.137 2.925.4 2.225-1.5 3.2-1.188 3.2-1.188.637 1.588.237 2.762.112 3.05.75.812 1.2 1.85 1.2 3.112 0 4.463-2.7 5.437-5.262 5.712.412.35.775 1.037.775 2.1 0 1.512-.013 2.737-.013 3.112 0 .3.212.65.787.55A10.99 10.99 0 0 0 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                clip-rule="evenodd" />
+            </svg>
+            GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 2 (Design) -->
+      <div
+        class="project-card filter-design bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-left">
+        <img src="assets/img/project/project-9.png" alt="Dukcapil Online"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">Dukcapil Online</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
+            data-project="2">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="2">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://www.figma.com/design/jIJ9oRgqG2YDoodXUXJ7GY/Web-and-Android-E-Dukcapil?node-id=0-1&t=e9DW8Z5Bml2sOHTb-1"
+            target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+
+            <!-- Icon Figma -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 384" class="w-5 h-5">
+              <path fill="#0ACF83" d="M128 192c0-35.3 28.7-64 64-64h64v64c0 35.3-28.7 64-64 64s-64-28.7-64-64Z" />
+              <path fill="#A259FF" d="M0 320c0-35.3 28.7-64 64-64h64v64c0 35.3-28.7 64-64 64S0 355.3 0 320Z" />
+              <path fill="#F24E1E" d="M0 192v-64h128v64H0Z" />
+              <path fill="#FF7262" d="M0 64C0 28.7 28.7 0 64 0h64v128H0V64Z" />
+              <path fill="#1ABCFE" d="M128 0h64c35.3 0 64 28.7 64 64s-28.7 64-64 64h-64V0Z" />
+            </svg>
+
+            Figma
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Project 3 (Web) -->
+      <div
+        class="project-card filter-web bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-right">
+        <img src="assets/img/project/project-5.png" alt="SMART DSS"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">SMART DSS</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            data-project="3">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="3">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://github.com/akmlnajib/RJM" target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 .5C5.648.5.5 5.648.5 12c0 5.094 3.293 9.406 7.864 10.938.575.1.787-.25.787-.562 0-.281-.012-1.219-.012-2.219-3.2.688-3.875-1.375-3.875-1.375-.525-1.313-1.287-1.662-1.287-1.662-1.05-.713.075-.7.075-.7 1.162.087 1.775 1.2 1.775 1.2 1.031 1.762 2.7 1.25 3.362.962.1-.744.4-1.25.725-1.537-2.55-.287-5.237-1.287-5.237-5.737 0-1.263.45-2.3 1.2-3.112-.125-.288-.525-1.462.112-3.05 0 0 .975-.312 3.2 1.188A11.1 11.1 0 0 1 12 6.9c.987.012 1.987.137 2.925.4 2.225-1.5 3.2-1.188 3.2-1.188.637 1.588.237 2.762.112 3.05.75.812 1.2 1.85 1.2 3.112 0 4.463-2.7 5.437-5.262 5.712.412.35.775 1.037.775 2.1 0 1.512-.013 2.737-.013 3.112 0 .3.212.65.787.55A10.99 10.99 0 0 0 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                clip-rule="evenodd" />
+            </svg>
+            GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 4 (Web) -->
+      <div
+        class="project-card filter-web bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-up">
+        <img src="assets/img/project/project-2.png" alt="MicroBooks"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">MicroBooks</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            data-project="4">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="4">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://github.com/akmlnajib" target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 .5C5.648.5.5 5.648.5 12c0 5.094 3.293 9.406 7.864 10.938.575.1.787-.25.787-.562 0-.281-.012-1.219-.012-2.219-3.2.688-3.875-1.375-3.875-1.375-.525-1.313-1.287-1.662-1.287-1.662-1.05-.713.075-.7.075-.7 1.162.087 1.775 1.2 1.775 1.2 1.031 1.762 2.7 1.25 3.362.962.1-.744.4-1.25.725-1.537-2.55-.287-5.237-1.287-5.237-5.737 0-1.263.45-2.3 1.2-3.112-.125-.288-.525-1.462.112-3.05 0 0 .975-.312 3.2 1.188A11.1 11.1 0 0 1 12 6.9c.987.012 1.987.137 2.925.4 2.225-1.5 3.2-1.188 3.2-1.188.637 1.588.237 2.762.112 3.05.75.812 1.2 1.85 1.2 3.112 0 4.463-2.7 5.437-5.262 5.712.412.35.775 1.037.775 2.1 0 1.512-.013 2.737-.013 3.112 0 .3.212.65.787.55A10.99 10.99 0 0 0 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                clip-rule="evenodd" />
+            </svg>
+            GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 5 (API) -->
+      <div
+        class="project-card filter-web bg-[#111827] p-5 rounded-2xl border border-cyan-400 shadow-[0_0_20px_#00ffff60] transition duration-500 flex flex-col"
+        data-aos="fade-left">
+        <img src="assets/img/project/project-4.png" alt="Ubhara Scholarship"
+          class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-2">Ubhara Scholarship</h3>
+        <div class="flex justify-center gap-3 mt-4">
+          <button data-lang="EN"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            data-project="5">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="5">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
+          </button>
+          <a href="https://github.com/akmlnajib/Beasiswa" target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 .5C5.648.5.5 5.648.5 12c0 5.094 3.293 9.406 7.864 10.938.575.1.787-.25.787-.562 0-.281-.012-1.219-.012-2.219-3.2.688-3.875-1.375-3.875-1.375-.525-1.313-1.287-1.662-1.287-1.662-1.05-.713.075-.7.075-.7 1.162.087 1.775 1.2 1.775 1.2 1.031 1.762 2.7 1.25 3.362.962.1-.744.4-1.25.725-1.537-2.55-.287-5.237-1.287-5.237-5.737 0-1.263.45-2.3 1.2-3.112-.125-.288-.525-1.462.112-3.05 0 0 .975-.312 3.2 1.188A11.1 11.1 0 0 1 12 6.9c.987.012 1.987.137 2.925.4 2.225-1.5 3.2-1.188 3.2-1.188.637 1.588.237 2.762.112 3.05.75.812 1.2 1.85 1.2 3.112 0 4.463-2.7 5.437-5.262 5.712.412.35.775 1.037.775 2.1 0 1.512-.013 2.737-.013 3.112 0 .3.212.65.787.55A10.99 10.99 0 0 0 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                clip-rule="evenodd" />
+            </svg>
+            GitHub</a>
+        </div>
       </div>
 
     </div>
+  </section>
 
+  <div id="projectModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
+    <div
+      class="modal-card bg-[#111827] w-full max-w-md md:max-w-lg rounded-2xl p-5 border border-cyan-400 shadow-[0_0_25px_#00ffff80] relative transform transition-all duration-300 scale-95 opacity-0">
+
+      <!-- Tombol Close -->
+      <button id="closeModal"
+        class="absolute top-2 right-3 text-cyan-300 hover:text-white text-3xl leading-none">&times;</button>
+
+      <!-- Gambar Modal -->
+      <img id="modalImg" src="" alt=""
+        class="rounded-xl mb-4 mx-auto w-full h-48 sm:h-56 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+
+      <!-- Judul -->
+      <h3 id="modalTitle" class="text-xl md:text-2xl font-bold text-cyan-300 mb-2"></h3>
+
+      <!-- Deskripsi -->
+      <p id="modalDesc" class="text-gray-300 text-sm md:text-base mb-4 leading-relaxed"></p>
+
+      <!-- Teknologi -->
+      <div id="modalTech" class="flex flex-wrap justify-center gap-2 mb-5"></div>
+
+      <!-- Tombol Link -->
+      <div id="modalLinks" class="flex flex-wrap justify-center gap-3"></div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+    <h2 class="text-3xl font-bold neon-text mb-12" data-aos="fade-up" data-lang="EN">My Skills</h2>
+    <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-aos="fade-up" data-lang="ID">Keahlian</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 max-w-6xl mx-auto">
+
+      <!-- Skill Item -->
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#787cb5]">
+      </div>
+
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg"
+          alt="Python"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#00bfff]">
+      </div>
+
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#f0db4f]">
+      </div>
+
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#00ffff]">
+      </div>
+
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#ff2d20]">
+      </div>
+
+      <div class="group">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain-wordmark.svg"
+          alt="Codeigniter"
+          class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#ff4500]">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-20 text-center px-6">
+  <h2 class="text-3xl font-bold neon-text mb-8" data-lang="EN" data-aos="fade-up">Contact Me</h2>
+  <h2 class="text-3xl font-bold neon-text mb-8 hidden" data-lang="ID" data-aos="fade-up">Kontak</h2>
+
+  <form id="contactForm" class="max-w-md mx-auto space-y-6" data-aos="fade-up" data-aos-delay="200">
+    <!-- Name -->
+    <input type="text" name="from_name" placeholder="Your Name"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      data-lang="EN">
+    <input type="text" name="from_name" placeholder="Masukkan nama anda"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 hidden"
+      data-lang="ID">
+
+    <!-- Email -->
+    <input type="email" name="from_email" placeholder="Your Email"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      data-lang="EN">
+    <input type="email" name="from_email" placeholder="Masukkan email anda"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 hidden"
+      data-lang="ID">
+
+    <!-- Message -->
+    <textarea name="message" placeholder="Your Message" rows="4"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      data-lang="EN"></textarea>
+    <textarea name="message" placeholder="Masukkan Pesan Anda" rows="4"
+      class="w-full p-3 rounded-lg bg-[#1A1A25] text-gray-200 border border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 hidden"
+      data-lang="ID"></textarea>
+
+    <!-- Button -->
+    <button type="submit" class="btn-neon w-full py-3 rounded-lg" data-lang="EN">Send Message</button>
+    <button type="submit" class="btn-neon w-full py-3 rounded-lg hidden" data-lang="ID">Kirim Pesan</button>
+  </form>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 border-t border-cyan-500">
+    © 2025 Akmal Najib. All Rights Reserved.
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/modal.js"></script>
+  <script src="assets/js/typed.js"></script>
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="https://apis.google.com/js/api.js"></script>
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR769JQ8PL"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function() {
+    emailjs.init("RLYnzsC1yvYzq1P7K"); // Ganti dengan Public Key kamu
+  })();
 
-  gtag('config', 'G-RR769JQ8PL');
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Kirim data ke EmailJS
+    emailjs.sendForm("service_0sk4jl1", "template_o25ql59", this)
+      .then(() => {
+        alert("Pesan berhasil dikirim! Terima kasih.");
+        form.reset();
+      }, (error) => {
+        alert("Gagal mengirim pesan. Silakan coba lagi nanti.");
+        console.error(error);
+      });
+  });
 </script>
 
+  <!--- service_0sk4jl1 -->
 </body>
 
 </html>
