@@ -47,32 +47,9 @@
   <script src="assets/js/language.js"></script>
   <script src="assets/js/modal.js"></script>
   <script src="assets/js/typed.js"></script>
+  <script src="assets/js/api.js"></script>
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-  <script>
-    (function () {
-      emailjs.init("RLYnzsC1yvYzq1P7K");
-    })();
-
-    const form = document.getElementById("contactForm");
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      // Kirim data ke EmailJS
-      emailjs.sendForm("service_0sk4jl1", "template_o25ql59", this)
-        .then(() => {
-          alert("Pesan berhasil dikirim! Terima kasih.");
-          form.reset();
-        }, (error) => {
-          alert("Gagal mengirim pesan. Silakan coba lagi nanti.");
-          console.error(error);
-        });
-    });
-  </script>
-
-  <!--- service_0sk4jl1 -->
 </body>
 
 </html>
