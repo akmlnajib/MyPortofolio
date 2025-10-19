@@ -1,4 +1,8 @@
-<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+export function NavbarSection() {
+  return `
+    <nav
+    class="fixed w-full top-0 z-50 bg-[#0A0A0F]/70 backdrop-blur-md border-b border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all duration-500">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center" id="navbar">
 
       <!-- Logo / Name -->
       <h1
@@ -61,3 +65,6 @@
         ID
       </button>
     </div>
+  </nav>
+  `;
+}

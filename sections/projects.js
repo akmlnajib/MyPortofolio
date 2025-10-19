@@ -1,4 +1,8 @@
-<h2 class="text-3xl font-bold neon-text mb-12" data-aos="fade-up">My Projects</h2>
+export function ProjectsSection() {
+  return `
+    <section id="projects" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+    <h2 class="text-3xl font-bold neon-text mb-12" data-lang="EN" data-aos="fade-up">My Project</h2>
+    <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-lang="ID" data-aos="fade-up">Proyek</h2>
     <!-- Projects Grid (note id untuk JS) -->
     <div id="projectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
@@ -50,7 +54,7 @@
           class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Absensi Geolocation</h3>
         <div class="flex justify-center gap-3 mt-4">
-          <button
+          <button data-lang="EN"
             class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
             data-project="1">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -59,6 +63,16 @@
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
             View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="1">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
           </button>
           <a href="https://github.com/akmlnajib/Absensi-Geolocation" target="_blank"
             class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
@@ -79,7 +93,7 @@
           class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Dukcapil Online</h3>
         <div class="flex justify-center gap-3 mt-4">
-          <button
+          <button data-lang="EN"
             class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="2">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -88,6 +102,16 @@
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
             View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="2">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
           </button>
           <a href="https://www.figma.com/design/jIJ9oRgqG2YDoodXUXJ7GY/Web-and-Android-E-Dukcapil?node-id=0-1&t=e9DW8Z5Bml2sOHTb-1"
             target="_blank"
@@ -116,7 +140,7 @@
           class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">SMART DSS</h3>
         <div class="flex justify-center gap-3 mt-4">
-          <button
+          <button data-lang="EN"
             class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
             data-project="3">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -125,6 +149,16 @@
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
             View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="3">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
           </button>
           <a href="https://github.com/akmlnajib/RJM" target="_blank"
             class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
@@ -145,7 +179,7 @@
           class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">MicroBooks</h3>
         <div class="flex justify-center gap-3 mt-4">
-          <button
+          <button data-lang="EN"
             class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
             data-project="4">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -154,6 +188,16 @@
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
             View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="4">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
           </button>
           <a href="https://github.com/akmlnajib" target="_blank"
             class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
@@ -174,7 +218,7 @@
           class="rounded-xl mb-4 mx-auto w-full h-40 sm:h-50 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Ubhara Scholarship</h3>
         <div class="flex justify-center gap-3 mt-4">
-          <button
+          <button data-lang="EN"
             class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
             data-project="5">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -183,6 +227,16 @@
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
             View Detail
+          </button>
+          <button data-lang="ID"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            data-project="5">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+              <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Lihat
           </button>
           <a href="https://github.com/akmlnajib/Beasiswa" target="_blank"
             class="flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition duration-300 hover:bg-cyan-400 hover:text-black font-medium shadow-[0_0_10px_#00ffff40]">
@@ -196,3 +250,31 @@
       </div>
 
     </div>
+  </section>
+  <div id="projectModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
+    <div
+      class="modal-card bg-[#111827] w-full max-w-md md:max-w-lg rounded-2xl p-5 border border-cyan-400 shadow-[0_0_25px_#00ffff80] relative transform transition-all duration-300 scale-95 opacity-0">
+
+      <!-- Tombol Close -->
+      <button id="closeModal"
+        class="absolute top-2 right-3 text-cyan-300 hover:text-white text-3xl leading-none">&times;</button>
+
+      <!-- Gambar Modal -->
+      <img id="modalImg" src="" alt=""
+        class="rounded-xl mb-4 mx-auto w-full h-48 sm:h-56 object-cover border border-cyan-800 shadow-[0_0_10px_#00ffff40]">
+
+      <!-- Judul -->
+      <h3 id="modalTitle" class="text-xl md:text-2xl font-bold text-cyan-300 mb-2"></h3>
+
+      <!-- Deskripsi -->
+      <p id="modalDesc" class="text-gray-300 text-sm md:text-base mb-4 leading-relaxed"></p>
+
+      <!-- Teknologi -->
+      <div id="modalTech" class="flex flex-wrap justify-center gap-2 mb-5"></div>
+
+      <!-- Tombol Link -->
+      <div id="modalLinks" class="flex flex-wrap justify-center gap-3"></div>
+    </div>
+  </div>
+  `;
+}

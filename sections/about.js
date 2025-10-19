@@ -1,5 +1,7 @@
-  <!-- About Section -->
-  <div class="flex flex-col md:flex-row items-center justify-center gap-10" data-aos="fade-right">
+export function AboutSection() {
+  return `
+    <section id="about" class="py-20 max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10" data-aos="fade-right">
       <div class="flex-shrink-0">
         <img src="assets/img/foto.jpg" alt="Profile"
           class="rounded-full neon-border w-36 h-36 md:w-48 md:h-48 object-cover mx-auto md:mx-0" />
@@ -71,3 +73,6 @@
         </a>
       </div>
     </div>
+  </section>
+  `;
+}

@@ -1,5 +1,7 @@
-<!-- Resume Section -->
- <div data-lang="EN">
+export function ResumeSection() {
+  return `
+    <section id="resume" class="py-20 text-gray-200 px-6">
+    <div data-lang="EN">
       <h2 class="text-3xl font-bold text-center neon-text mb-16" data-aos="fade-up">Resume</h2>
       <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
 
@@ -72,7 +74,7 @@
               <span
                 class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
               <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST</h4>
-              <p class="text-sm italic text-gray-400 mt-1">March 2020 – June 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">February 2020 – February 2021</p>
               <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, North Jakarta, Indonesia
               </p>
               <p class="text-sm leading-relaxed mt-2 text-gray-200">
@@ -81,20 +83,25 @@
                 identified as well as reported discrepancies to improve data accuracy and warehouse efficiency.
               </p>
             </div>
+
             <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
 
             <div class="relative">
               <span
                 class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
-              <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST</h4>
-              <p class="text-sm italic text-gray-400 mt-1">March 2020 – June 2020</p>
-              <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, North Jakarta, Indonesia
+              <h4 class="font-semibold text-sm md:text-base">INVENTORY, PUTAWAY</h4>
+              <p class="text-sm italic text-gray-400 mt-1">June 2019 – January 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">PT Lazada, Depok, Indonesia
               </p>
               <p class="text-sm leading-relaxed mt-2 text-gray-200">
-                Ensured accurate documentation of inventory quantities, shipment details, and customer information.
-                Validated shipping and inventory data in the system to ensure alignment with physical records, and
-                identified as well as reported discrepancies to improve data accuracy and warehouse efficiency.
+                Ensure that stock quantities match the records in the system (stock opname). Conduct regular physical
+                stock counts and compare them with system data. Handle stock discrepancies (over/under) and analyze
+                their causes. Receive incoming goods into the warehouse, including checking the quantity, quality, and
+                condition of the items. Arrange goods in the warehouse based on type, priority, or location to
+                facilitate the picking process. Manage the warehouse layout to ensure efficiency and safety. Ensure that
+                all received goods are accurately recorded in the inventory system.
               </p>
+
             </div>
           </div>
         </div>
@@ -172,7 +179,7 @@
               <span
                 class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
               <h4 class="font-semibold text-sm md:text-base">JUNIOR ANALYST, Warehouse</h4>
-              <p class="text-sm italic text-gray-400 mt-1">Maret 2020 – Juni 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">Februari 2020 – Februari 2021</p>
               <p class="text-sm italic text-gray-400 mt-1">PT Shopee International Indonesia, Jakarta Utara, Indonesia
               </p>
               <p class="text-sm leading-relaxed mt-2 text-gray-200">
@@ -183,7 +190,29 @@
               </p>
 
             </div>
+
+            <div class="absolute top-0 left-[0.35rem] bottom-0 border-l border-cyan-400 opacity-50"></div>
+            <div class="relative">
+              <span
+                class="absolute -left-[1.05rem] top-1.5 w-4 h-4 bg-cyan-400 rounded-full border-2 border-[#0D0D15]"></span>
+              <h4 class="font-semibold text-sm md:text-base">INVENTORY, PUTAWAY</h4>
+              <p class="text-sm italic text-gray-400 mt-1">Juni 2019 – Januari 2020</p>
+              <p class="text-sm italic text-gray-400 mt-1">PT Lazada, Depok, Indonesia
+              </p>
+              <p class="text-sm leading-relaxed mt-2 text-gray-200">
+                Memastikan jumlah stok barang sesuai catatan sistem (stock opname). Melakukan penghitungan fisik barang
+                secara berkala dan membandingkan dengan data sistem. Menangani selisih stok (over / under) dan
+                menganalisis penyebabnya. Menerima barang yang masuk ke gudang, termasuk pemeriksaan jumlah, kualitas,
+                dan kondisi barang. Menata barang di gudang berdasarkan jenis, prioritas, atau lokasi agar memudahkan
+                proses picking/pengambilan. Mengelola layout gudang agar efisien dan aman. Memastikan bahwa barang yang
+                diterima tercatat dengan benar di sistem inventori.
+              </p>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
+  `;
+}

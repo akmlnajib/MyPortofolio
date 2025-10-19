@@ -1,5 +1,8 @@
-  <!-- Skills Section -->
-   <h2 class="text-3xl font-bold neon-text mb-12" data-aos="fade-up">My Skills</h2>
+export function SkillsSection() {
+  return `
+     <section id="skills" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+    <h2 class="text-3xl font-bold neon-text mb-12" data-aos="fade-up" data-lang="EN">My Skills</h2>
+    <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-aos="fade-up" data-lang="ID">Keahlian</h2>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 max-w-6xl mx-auto">
 
@@ -37,3 +40,6 @@
           class="w-16 h-16 mx-auto transition duration-500 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_#ff4500]">
       </div>
     </div>
+  </section>
+  `;
+}
