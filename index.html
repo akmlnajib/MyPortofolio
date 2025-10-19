@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevPort</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,13 +20,13 @@
   <div id="app" class="absolute inset-0 -z-10"></div>
 
   <script type="module">
-    import { NavbarSection } from "./assets/js/sections/navbar.js";
-    import { AboutSection } from "./assets/js/sections/about.js";
-    import { ResumeSection } from "./assets/js/sections/resume.js";
-    import { ProjectsSection } from "./assets/js/sections/projects.js";
-    import { SkillsSection } from "./assets/js/sections/skills.js";
-    import { ContactSection } from "./assets/js/sections/contact.js";
-    import { FooterSection } from "./assets/js/sections/footer.js";
+    import { NavbarSection } from "./sections/navbar.js";
+    import { AboutSection } from "./sections/about.js";
+    import { ResumeSection } from "./sections/resume.js";
+    import { ProjectsSection } from "./sections/projects.js";
+    import { SkillsSection } from "./sections/skills.js";
+    import { ContactSection } from "./sections/contact.js";
+    import { FooterSection } from "./sections/footer.js";
 
     const app = document.getElementById("app");
     app.innerHTML = `
