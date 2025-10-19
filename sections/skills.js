@@ -1,6 +1,6 @@
 export function SkillsSection() {
   return `
-     <section id="skills" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+     <section id="skills" class="py-20 px-6 text-center relative overflow-hidden">
     <h2 class="text-3xl font-bold neon-text mb-12" data-aos="fade-up" data-lang="EN">My Skills</h2>
     <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-aos="fade-up" data-lang="ID">Keahlian</h2>
 

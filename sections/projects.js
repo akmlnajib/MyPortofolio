@@ -1,6 +1,6 @@
 export function ProjectsSection() {
   return `
-    <section id="projects" class="py-20 px-6 bg-[#0A0A0F] text-center relative overflow-hidden">
+    <section id="projects" class="py-20 px-6 text-center relative overflow-hidden">
     <h2 class="text-3xl font-bold neon-text mb-12" data-lang="EN" data-aos="fade-up">My Project</h2>
     <h2 class="text-3xl font-bold neon-text mb-12 hidden" data-lang="ID" data-aos="fade-up">Proyek</h2>
     <!-- Projects Grid (note id untuk JS) -->
@@ -15,17 +15,17 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Kenangan Rentcar</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="0">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-width="2" d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
               <path stroke-width="2" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
-            View
+            View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="0">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -55,7 +55,7 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Absensi Geolocation</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="1">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -65,7 +65,7 @@ export function ProjectsSection() {
             View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="1">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -94,7 +94,7 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Dukcapil Online</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hover:bg-cyan-400 hover:text-black"
             data-project="2">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -104,7 +104,7 @@ export function ProjectsSection() {
             View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="2">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -141,7 +141,7 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">SMART DSS</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="3">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -151,7 +151,7 @@ export function ProjectsSection() {
             View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="3">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -180,7 +180,7 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">MicroBooks</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="4">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -190,7 +190,7 @@ export function ProjectsSection() {
             View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="4">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -219,7 +219,7 @@ export function ProjectsSection() {
         <h3 class="text-xl font-semibold text-cyan-300 mb-2">Ubhara Scholarship</h3>
         <div class="flex justify-center gap-3 mt-4">
           <button data-lang="EN"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black"
             data-project="5">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -229,7 +229,7 @@ export function ProjectsSection() {
             View Detail
           </button>
           <button data-lang="ID"
-            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hidden"
+            class="view-detail-btn flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-400 text-cyan-300 text-sm transition hover:bg-cyan-400 hover:text-black hidden"
             data-project="5">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
